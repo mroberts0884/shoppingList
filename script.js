@@ -5,10 +5,14 @@ const editButton = document.createElement('button')
 const deleteButton = document.createElement('button')
 const list = document.getElementById('list')
 //Create save button
-const saveButton = document.createElement('button')
-saveButton.innerText = "Save"
+const saveButton = document.getElementById('saveButton')
+saveButton.style.display = 'none'
 // Create a new div to hold the input value
 const newDiv = document.createElement('div')
+const inputEditable = document.getElementById("editableInput")
+inputEditable.style.display = 'none'
+
+const container = document.getElementsByClassName('container')
 
 
 
@@ -37,7 +41,10 @@ function addInfo() {
 
     // Append the new div to the output container
     list.appendChild(newDiv);
-    
+
+    inputEditable.style.display = 'none'
+    saveButton.style.display = 'none'
+
     // Clear the input field after submission
     document.getElementById('item').value = '';
     
@@ -48,12 +55,18 @@ function addInfo() {
 editButton.addEventListener('click', editItem)
 
 function editItem() {
-    newDiv.contentEditable = true
-    editButton.contentEditable = false
-    deleteButton.contentEditable = false
-    saveButton.contentEditable = false
-    newDiv.appendChild(saveButton)
+    
+    saveButton.style.display = 'inline'
+    inputEditable.style.display = 'inline'
+    newDiv.style.display = 'none'
+    inputEditable.removeAttribute('readonly')
+
+    inputEditable.value = ''; // Clear the value
+    inputEditable.focus(); // Focus on the input box for immediate editing
+    
 }
+
+
 
 deleteButton.addEventListener('click', deleteItem)
 
@@ -68,18 +81,18 @@ function deleteItem() {
     }
 }
 
-save.addEventListener('click', saveItem)
+saveButton.addEventListener('click', saveItem)
 
 function saveItem() {
-   const content = newDiv.innerHTML
-   localStorage.setItem("savedContent", content);
-   console.log("Content saved to localStorage:", content);
-   saveButton.style.display = 'none'
-}
+    const inputValue = inputEditable.value;
 
-window.onload = function() {
-    const savedContent = localStorage.getItem("savedContent");
-    if (savedContent) {
-        newDiv.innerHTML = savedContent;
-    }
+    newDiv.textContent = inputValue
+    inputEditable.style.display = 'none';
+    saveButton.style.display = 'none';
+    newDiv.style.display = 'inline'; // Show the updated static value
+    newDiv.appendChild(editButton)
+    newDiv.appendChild(deleteButton)
+    alert('Item saved!')
+
+    console.log('Item saved')
 }
