@@ -1,48 +1,43 @@
 document.getElementById('submit').addEventListener('click', addInfo);
 // Create edit button
-const editButton = document.createElement('button')
+const editButton = document.getElementById('editButton')
+editButton.style.display = 'none'
 // Create delete button
-const deleteButton = document.createElement('button')
+const deleteButton = document.getElementById('deleteButton')
+deleteButton.style.display = 'none'
 const list = document.getElementById('list')
 //Create save button
 const saveButton = document.getElementById('saveButton')
 saveButton.style.display = 'none'
 // Create a new div to hold the input value
 const newDiv = document.createElement('div')
-const inputEditable = document.getElementById("editableInput")
-inputEditable.style.display = 'none'
 
-const container = document.getElementsByClassName('container')
+
+const item1 = document.getElementById('item1')
+const quantity1 = document.getElementById('quantity1')
 
 
 
 function addInfo() {
     const inputItem = document.getElementById('item').value;
     const inputQuantity = document.getElementById('quantity').value;
-
-     // Create a new div to hold the input value
-     
-     newDiv.textContent = inputItem + ' ' + inputQuantity; // Set the text inside the div
     
-    // adding text to edit button
-    editButton.innerText = "Edit Item"
-
-    // adding class name to editbutton
-    editButton.classList.add('editButton')
-
-    // adding text to delete button
-    deleteButton.innerText = "Delete Item"
-
-    // adding class name to delete button
-    deleteButton.classList.add('deleteButton')
-
-    newDiv.appendChild(editButton)
-    newDiv.appendChild(deleteButton)
+    //Update content of the cell with the input value
+    item1.textContent = inputItem
+    quantity1.textContent = inputQuantity
+    
+    item1.appendChild(editButton)
+    item1.appendChild(deleteButton)
+    quantity1.appendChild(editButton)
+    quantity1.appendChild(deleteButton)
 
     // Append the new div to the output container
-    list.appendChild(newDiv);
-
-    inputEditable.style.display = 'none'
+    list.appendChild(item1)
+    list.appendChild(quantity1)
+    
+   
+    editButton.style.display = 'inline'
+    deleteButton.style.display = 'inline'
     saveButton.style.display = 'none'
 
     // Clear the input field after submission
@@ -55,14 +50,10 @@ function addInfo() {
 editButton.addEventListener('click', editItem)
 
 function editItem() {
-    
     saveButton.style.display = 'inline'
-    inputEditable.style.display = 'inline'
-    newDiv.style.display = 'none'
-    inputEditable.removeAttribute('readonly')
+    
 
-    inputEditable.value = ''; // Clear the value
-    inputEditable.focus(); // Focus on the input box for immediate editing
+    
     
 }
 
@@ -84,12 +75,7 @@ function deleteItem() {
 saveButton.addEventListener('click', saveItem)
 
 function saveItem() {
-    const inputValue = inputEditable.value;
-
-    newDiv.textContent = inputValue
-    inputEditable.style.display = 'none';
     saveButton.style.display = 'none';
-    newDiv.style.display = 'inline'; // Show the updated static value
     newDiv.appendChild(editButton)
     newDiv.appendChild(deleteButton)
     alert('Item saved!')

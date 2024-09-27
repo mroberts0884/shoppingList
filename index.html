@@ -23,14 +23,34 @@
         <section id="listItems">
             <p>List</p>
             <div id="list" spellcheck="">
-                <input type="text" id="editableInput" readonly />
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="item1"></td>
+                            <td id="quantity1"></td>
+                        </tr>
+                    </tbody>
+                   
+                </table>
+                <section id="buttons">
+                    <button id="editButton">Edit</button>
+                    <button id="deleteButton">Delete</button>
                     <button id="saveButton">Save</button>
+                </section>
+                
                     
             </div>
             
         </section>
             </form>  
         </section>
+
 
     <script src="script.js"></script>
         
