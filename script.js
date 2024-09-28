@@ -11,12 +11,9 @@ const saveButton = document.getElementById('saveButton')
 saveButton.style.display = 'none'
 // Create a new div to hold the input value
 const newDiv = document.createElement('div')
-
-
 const item1 = document.getElementById('item1')
 const quantity1 = document.getElementById('quantity1')
-
-
+const container = document.getElementById('container')
 
 function addInfo() {
     const inputItem = document.getElementById('item').value;
@@ -35,7 +32,6 @@ function addInfo() {
     list.appendChild(item1)
     list.appendChild(quantity1)
     
-   
     editButton.style.display = 'inline'
     deleteButton.style.display = 'inline'
     saveButton.style.display = 'none'
@@ -50,11 +46,19 @@ function addInfo() {
 editButton.addEventListener('click', editItem)
 
 function editItem() {
+    item1.appendChild(saveButton)
+    quantity1.appendChild(saveButton)
+    
     saveButton.style.display = 'inline'
+    item1.style.display = 'inline'
+    quantity1.style.display = 'inline'
     
-
+    item1.contentEditable = true
+    quantity1.contentEditable = true
     
-    
+    editButton.contentEditable = false
+    deleteButton.contentEditable = false
+    saveButton.contentEditable = false
 }
 
 
@@ -79,6 +83,4 @@ function saveItem() {
     newDiv.appendChild(editButton)
     newDiv.appendChild(deleteButton)
     alert('Item saved!')
-
-    console.log('Item saved')
 }

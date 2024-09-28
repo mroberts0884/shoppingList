@@ -39,3 +39,11 @@ td {
 #buttons {
     padding-left: 2em;
 }
+
+#edititem1 {
+    width: 10%;
+}
+
+#editQuantity {
+    width: 10%;
+}

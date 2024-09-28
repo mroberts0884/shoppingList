@@ -1,0 +1,4 @@
+I want the user to be able to upload a picture of a food to the app, save it, and be able to put it in the shopping list. So the next time the need that item they can just get it and put it on the list.
+
+1. For the shopping list I want to make a editable table so I could edit the item and quantity independent of each other.
+How to accomplish this: HTML and Javascript
