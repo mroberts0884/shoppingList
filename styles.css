@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: lightseagreen;
 }
 
 input, textarea, label {
@@ -12,17 +13,21 @@ input, textarea, label {
 }
 
 #quantity {
-    width: 5%;
+    width: 25%;
 }
 
-#editButton {
+.editButton {
     
     margin: 0.5em;
     
 }
 
-#deleteButton {
+.deleteButton {
     
+    margin: 0.5em;
+}
+
+.saveButton {
     margin: 0.5em;
 }
 
@@ -46,4 +51,33 @@ td {
 
 #editQuantity {
     width: 10%;
+}
+
+.inputs {
+    margin: 4em;
+    font-size: large;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font: 2em sans-serif;
+    font-weight: bold;
+}
+
+#dataTable {
+    text-align: center;
+}
+
+#submit {
+    font-size: 0.75em;
+    background-color: rgb(125, 230, 230);
+    cursor: pointer;
+}
+
+#quantity {
+    padding-bottom: 0.5em;
 }

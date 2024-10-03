@@ -2,10 +2,13 @@ document.getElementById('submit').addEventListener('click', addInfo);
 // Create edit button
 const editButton = document.createElement('button')
 editButton.textContent = 'Edit'
+editButton.classList.add('editButton')
 const deleteButton = document.createElement('button')
 deleteButton.textContent = 'Delete'
+deleteButton.classList.add('deleteButton')
 const saveButton = document.createElement('button')
 saveButton.textContent = 'Save'
+saveButton.classList.add('saveButton')
 // Create a new div to hold the input value
 const newDiv = document.createElement('div')
 const item1 = document.getElementById('item1')
@@ -53,7 +56,7 @@ editButton.addEventListener('click', editItem)
     
 
 function editItem() {
-    quantity1.appendChild(saveButton)
+    newQuantity.appendChild(saveButton)
     
     editButton.style.display = 'none'
     deleteButton.style.display = 'none'
@@ -68,9 +71,6 @@ function editItem() {
     deleteButton.contentEditable = 'false'
     saveButton.contentEditable = 'false'
 
-    if (newItem.contentEditable == 'false' && newQuantity.contentEditable == 'false') {
-        editButton.style.display = 'inline'
-    }
 
 }
 saveButton.addEventListener('click', makeCellsNonEditable)
@@ -89,7 +89,7 @@ function makeCellsNonEditable(button) {
         cells[i].contentEditable = false;
     }
 
-    editButton.style.display = 'inline'
+   
    
 }
 
@@ -101,7 +101,7 @@ deleteButton.addEventListener('click', deleteItem)
 function deleteItem() {
     const deleteMessage = confirm('Are you sure you want to delete this item? ')
     if (deleteMessage) {
-        newDiv.remove()
+        newRow.remove()
     } 
     else {
         // If user clicks 'Cancel', do nothing
@@ -116,13 +116,8 @@ function saveItem() {
     editButton.style.display = 'inline'
     deleteButton.style.display = 'inline'
     
+    newQuantity.appendChild(editButton)
+    newQuantity.appendChild(deleteButton)
     
-    item1.appendChild(editButton)
-    item1.appendChild(deleteButton)
-    quantity1.appendChild(editButton)
-    quantity1.appendChild(deleteButton)
-    newDiv.appendChild(editButton)
-    newDiv.appendChild(editButton)
-
     alert('Item saved!')
 }
