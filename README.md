@@ -1,1 +1,1 @@
-# shoppingList
+This is a web app that allows the user to to enter in grocery item and quantity and it makes a shopping list for them. When the item is listed, there are buttons that allow you to edit and delete the item is you so choose. 
